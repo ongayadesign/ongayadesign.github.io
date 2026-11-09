@@ -350,78 +350,28 @@
       <h2 class="sec-title">Selected systems</h2>
       <span class="sec-note">// public surface of a larger practice</span>
     </div>
-    <div class="work-grid">
-
-      <article class="card reveal">
-        <div class="card-top">
-          <div class="card-glyph">AH</div>
-          <span class="badge live">live</span>
-        </div>
-        <h3>agencyhut.io</h3>
-        <p>White-label development OS for agencies — an embedded engineering department they resell as their own. Delivery platform with ticketing, snapshots, approvals, billing, and operational dashboards; WordPress plugin suite; deterministic, auditable, partner-isolated by design. Founded and operated by me.</p>
-        <div class="tags">
-          <span class="tag">delivery platform</span><span class="tag">WordPress</span><span class="tag">plugin suite</span>
-          <span class="tag">white-label</span>
-        </div>
-        <a class="more" href="https://agencyhut.io" target="_blank" rel="noopener">agencyhut.io →</a>
-      </article>
-
-      <article class="card reveal d1">
-        <div class="card-top">
-          <div class="card-glyph">SB</div>
-          <span class="badge alpha">alpha · wip</span>
-        </div>
-        <h3>StarBridge Enterprise</h3>
-        <p>Kernel-first enterprise platform — ~60 plugins across management verticals, capability contracts, lifecycle state machine, hash-chained audit sink, tenant-scoped storage. Designed and built through agentic LLM workflows: agents write, audit, and verify; humans hold the boundary. ~100K LOC, running.</p>
-        <div class="tags">
-          <span class="tag">FastAPI</span><span class="tag">React 19</span><span class="tag">PostgreSQL</span>
-          <span class="tag">plugin kernel</span><span class="tag">RBAC</span><span class="tag">audit chain</span>
-        </div>
-        <span class="more" style="color:var(--text-3); cursor:default">private repository · access by agreement</span>
-      </article>
-
-      <article class="card reveal d2">
-        <div class="card-top">
-          <div class="card-glyph">UE</div>
-          <span class="badge live">live</span>
-        </div>
-        <h3>Unclaimed Entitlements</h3>
-        <p>Public asset-recovery platform — searchable catalog of unclaimed property records. Custom ingestion pipeline processing ~95M catalog rows into production search, with records workflow and public API surface. Running on dedicated infrastructure.</p>
-        <div class="tags">
-          <span class="tag">Go</span><span class="tag">PostgreSQL</span><span class="tag">nginx</span>
-          <span class="tag">ETL pipeline</span><span class="tag">public data</span>
-        </div>
-        <a class="more" href="https://unclaimedentitlements.com" target="_blank" rel="noopener">unclaimedentitlements.com →</a>
-      </article>
-
-      <article class="card reveal d3">
-        <div class="card-top">
-          <div class="card-glyph">IW</div>
-          <span class="badge live">live</span>
-        </div>
-        <h3>iWorkVeryHard Screening</h3>
-        <p>Intake assessment platform — candidate-facing application flow, keyed admin review surface, persistent storage, automated grading hooks. Deployed on dedicated infrastructure and in daily use.</p>
-        <div class="tags">
-          <span class="tag">Node</span><span class="tag">SQLite</span><span class="tag">systemd</span>
-          <span class="tag">admin workflows</span>
-        </div>
-        <a class="more" href="https://screening.iworkveryhard.com" target="_blank" rel="noopener">screening.iworkveryhard.com →</a>
-      </article>
-
-      <article class="card reveal d4">
-        <div class="card-top">
-          <div class="card-glyph">2S</div>
-          <span class="badge client">principal engineer</span>
-        </div>
-        <h3>2SOLID AI</h3>
-        <p>Applied-AI engineering firm — the intelligence layer for products that have to work: context-resident agent memory, coordinated agent workforces, verified AI. Retained principal engineer since 2023; architected their advanced public platform and production infrastructure.</p>
-        <div class="tags">
-          <span class="tag">agentic systems</span><span class="tag">applied AI</span><span class="tag">platform architecture</span>
-        </div>
-        <a class="more" href="https://2solidae.com" target="_blank" rel="noopener">2solidae.com →</a>
-      </article>
-
-    </div>
+    <table class="ledger reveal">
+      <thead>
+        <tr><th>System</th><th>What it is</th><th></th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sys"><a href="https://agencyhut.io" target="_blank" rel="noopener">agencyhut.io</a></td>
+          <td class="what">White-label development OS — an embedded engineering department agencies resell as their own. Delivery platform, plugin suite, deterministic auditable pipeline. Founded and operated by me.</td>
+          <td class="stat">live &#8599;</td>
+        </tr>
+        <tr>
+          <td class="sys">StarBridge <span class="priv">· private</span></td>
+          <td class="what">Kernel-first enterprise platform — ~100K LOC, ~60 plugins, capability contracts, hash-chained audit. Designed and built through agentic LLM workflows under scoped permissions and human review. Access by agreement.</td>
+          <td class="stat">alpha</td>
+        </tr>
+        <tr>
+          <td class="sys"><a href="https://2solidae.com" target="_blank" rel="noopener">2SOLID AI</a></td>
+          <td class="what">Applied-AI engineering firm — agent memory substrate, coordinated agent workforces, verified AI. Principal engineer since 2023; architected their advanced public platform and production infrastructure.</td>
+          <td class="stat">retained &#8599;</td>
+        </tr>
+      </tbody>
+    </table>
 
     <div class="private-band reveal">
       <span class="pb-tag">▸ private development</span>
