@@ -148,6 +148,32 @@
   .sec-note { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); margin-left: auto; }
 
   .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+
+  .ledger { width: 100%; border-collapse: collapse; }
+  .ledger th, .ledger td {
+    text-align: left; padding: 20px 18px; border-bottom: 1px solid var(--line-soft);
+    vertical-align: top;
+  }
+  .ledger th {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--text-3); font-weight: 500;
+    border-bottom: 1px solid var(--line); padding-bottom: 14px;
+  }
+  .ledger td.sys {
+    font-family: var(--font-mono); font-size: 14px; font-weight: 600; color: var(--text);
+    white-space: nowrap; width: 220px;
+  }
+  .ledger td.sys a { color: var(--accent); }
+  .ledger td.sys a:hover { text-decoration: underline; }
+  .ledger td.sys .priv { color: var(--text-3); font-weight: 500; font-size: 12px; }
+  .ledger td.what { font-size: 14.5px; color: var(--text-2); }
+  .ledger td.stat { font-family: var(--font-mono); font-size: 11.5px; color: var(--text-3); white-space: nowrap; width: 130px; }
+  .ledger tr:hover td { background: rgba(255,255,255,.015); }
+  @media (max-width: 720px) {
+    .ledger td.sys { white-space: normal; width: auto; display:block; padding-bottom:4px; }
+    .ledger td.what { display:block; padding-top:4px; padding-bottom:12px; }
+    .ledger td.stat { display:block; width:auto; padding-top:0; padding-bottom:16px; }
+  }
   .card {
     background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
     padding: 26px; display: flex; flex-direction: column; gap: 14px;
@@ -282,13 +308,6 @@
       <a class="btn primary" href="#systems">Selected systems <span class="arrow">→</span></a>
       <a class="btn" href="https://github.com/ongayadesign" target="_blank" rel="noopener">GitHub</a>
     </div>
-    <div class="status-row reveal d4">
-      <span class="chip"><span class="dot"></span>agencyhut.io — live</span>
-      <span class="chip"><span class="dot blue"></span>starbridge — alpha</span>
-      <span class="chip"><span class="dot"></span>unclaimedentitlements.com — live</span>
-      <span class="chip"><span class="dot"></span>screening.iworkveryhard.com — live</span>
-    </div>
-
     <div class="stats reveal d4">
       <div class="stat"><div class="s-num"><em>15+</em></div><div class="s-label">years enterprise systems</div></div>
       <div class="stat"><div class="s-num"><em>$2M+</em></div><div class="s-label">annual practice revenue</div></div>
@@ -314,7 +333,7 @@
       <div class="principle reveal d1">
         <span class="p-num">/02 — agentic</span>
         <h3>AI does the volume. Humans hold the boundary.</h3>
-        <p>LLM agents operate under scoped permissions — single plugins, declared files, evidence before done. Kernel and security paths stay human-reviewed. The git history is the workflow; the audit trail is the proof.</p>
+        <p>LLMs working together autonomously — properly: shared memory, scoped permissions, declared files, evidence before done. Kernel and security paths stay human-reviewed. The git history is the workflow; the audit trail is the proof.</p>
       </div>
       <div class="principle reveal d2">
         <span class="p-num">/03 — evidence</span>
@@ -407,9 +426,11 @@
     <div class="private-band reveal">
       <span class="pb-tag">▸ private development</span>
       <p>
-        Most of what I build never ships publicly — by design. Persistent memory architectures
-        for agent systems, multi-agent orchestration infrastructure, and applied-AI platforms
-        in active development. What you see here is the public surface.
+        Most of what I build never ships publicly — by design. The current deep work: a ground-up
+        memory substrate for AI agents — specified in a 65-chapter design corpus of 1,000+
+        documents, 300+ numbered decision records, calibrated verification gates, and a
+        claim-labeling discipline where every assertion carries its evidence status.
+        What you see here is the public surface.
         Serious inquiries — <a href="mailto:ongaya.design@gmail.com">ongaya.design@gmail.com</a>
       </p>
     </div>
