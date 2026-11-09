@@ -112,6 +112,7 @@
   .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
   .btn.primary:hover { background: #2f74f0; border-color: #2f74f0; }
   .btn .arrow { transition: transform .18s ease; }
+  button.btn { cursor: pointer; font-family: var(--font-mono); }
   .btn:hover .arrow { transform: translateX(3px); }
 
   .status-row { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -427,7 +428,7 @@
     <p class="reveal d1">Platform ownership, agentic-AI infrastructure, production cloud operations, and executive-level communication — for firms that need committed technical capacity, and for investors and enterprises evaluating what comes next.</p>
     <div class="hero-ctas reveal d2">
       <a class="btn primary" href="mailto:ongaya.design@gmail.com">ongaya.design@gmail.com <span class="arrow">→</span></a>
-      <a class="btn" href="tel:+18254887355">+1 (825) 488-7355</a>
+      <button class="btn" id="phone-btn" type="button" title="click to reveal">+1 (&bull;&bull;&bull;) &bull;&bull;&bull;-&bull;&bull;&bull;&bull;</button>
     </div>
     <div class="retainer-note reveal d3"><span class="dot"></span>Available for a limited number of annual retainer engagements</div>
   </section>
@@ -448,6 +449,15 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const PHONE = [43,49,32,40,56,50,53,41,32,52,56,56,45,55,51,53,53];
+  const pbtn = document.getElementById('phone-btn');
+  if (pbtn) pbtn.addEventListener('click', () => {
+    const num = String.fromCharCode.apply(null, PHONE);
+    const a = document.createElement('a');
+    a.className = 'btn'; a.href = 'tel:' + num.replace(/[^+\d]/g, ''); a.textContent = num;
+    pbtn.replaceWith(a);
+  });
 
   const nav = document.querySelector('nav');
   addEventListener('scroll', () => {
