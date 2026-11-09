@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charles Oneka — Kernel-Platform Engineer</title>
+<meta name="description" content="Charles Oneka builds kernel-first platforms and the agentic engineering workflows around them. 2 SOLID AE.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #09090b;
+    --bg-raise: #101013;
+    --bg-card: #131316;
+    --line: #232327;
+    --line-soft: #1a1a1e;
+    --text: #fafafa;
+    --text-2: #a1a1aa;
+    --text-3: #6b6b76;
+    --accent: #3b82f6;
+    --accent-soft: rgba(59,130,246,.12);
+    --accent-line: rgba(59,130,246,.35);
+    --ok: #34d399;
+    --warn: #fbbf24;
+    --radius: 12px;
+    --font-display: "Space Grotesk", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--accent); color: #fff; }
+  a { color: inherit; text-decoration: none; }
+  .mono { font-family: var(--font-mono); }
+
+  /* ---------- backdrop grid ---------- */
+  .grid-bg {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 30%, transparent 75%);
+    opacity: .5;
+  }
+  .glow {
+    position: fixed; z-index: -1; pointer-events: none;
+    width: 720px; height: 420px; top: -180px; left: 50%; transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(59,130,246,.14), transparent 65%);
+  }
+
+  /* ---------- nav ---------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(20px, 5vw, 48px); height: 60px;
+    background: rgba(9,9,11,.72);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .brand { font-weight: 700; font-size: 15px; letter-spacing: -.01em; display:flex; align-items:center; gap:9px; }
+  .brand .cursor { color: var(--accent); }
+  .brand .tld { color: var(--text-3); font-weight: 500; }
+  .nav-links { display: flex; gap: 26px; align-items: center; }
+  .nav-links a {
+    font-family: var(--font-mono); font-size: 12px; color: var(--text-3);
+    transition: color .18s ease; letter-spacing: .02em;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a .hash { color: var(--accent); opacity: .8; }
+  @media (max-width: 640px) { .nav-links a:not(.nav-cta) { display:none; } }
+
+  main { max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+
+  /* ---------- hero ---------- */
+  .hero {
+    min-height: 92vh; display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 0 80px; position: relative;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono); font-size: 12px; color: var(--accent);
+    letter-spacing: .14em; text-transform: uppercase; margin-bottom: 26px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before { content:""; width: 26px; height: 1px; background: var(--accent); }
+  h1 {
+    font-size: clamp(44px, 8.5vw, 92px); font-weight: 700; line-height: 1.02;
+    letter-spacing: -.035em; margin-bottom: 28px;
+  }
+  h1 .thin { color: var(--text-3); font-weight: 500; }
+  .hero-sub {
+    max-width: 560px; font-size: clamp(16px, 2vw, 19px); color: var(--text-2);
+    margin-bottom: 40px; text-wrap: pretty;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 600; }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 13px; font-weight: 500;
+    padding: 11px 20px; border-radius: 8px; border: 1px solid var(--line);
+    background: var(--bg-raise); color: var(--text);
+    transition: border-color .18s ease, transform .18s ease, background .18s ease;
+  }
+  .btn:hover { border-color: var(--accent-line); transform: translateY(-1px); background: #16161a; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn.primary:hover { background: #2f74f0; border-color: #2f74f0; }
+  .btn .arrow { transition: transform .18s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  .status-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .chip {
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--text-2);
+    border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px;
+    display: inline-flex; align-items: center; gap: 7px; background: var(--bg-raise);
+  }
+  .chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+  .chip .dot.blue { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+
+  /* kernel diagram */
+  .kernel-wrap {
+    position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
+    width: min(46vw, 520px); opacity: .9; display: none;
+  }
+  @media (min-width: 1080px) { .kernel-wrap { display: block; } }
+  .kernel-wrap svg { width: 100%; height: auto; display:block; }
+
+  /* ---------- sections ---------- */
+  section { padding: 96px 0; border-top: 1px solid var(--line-soft); }
+  .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 48px; flex-wrap: wrap; }
+  .sec-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
+  .sec-title { font-size: clamp(26px, 4vw, 38px); font-weight: 700; letter-spacing: -.025em; }
+  .sec-note { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); margin-left: auto; }
+
+  /* work cards */
+  .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+  .card {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 26px; display: flex; flex-direction: column; gap: 14px;
+    transition: border-color .2s ease, transform .2s ease;
+    position: relative; overflow: hidden;
+  }
+  .card::before {
+    content:""; position:absolute; inset:0 0 auto 0; height:1px;
+    background: linear-gradient(90deg, transparent, var(--accent-line), transparent);
+    opacity: 0; transition: opacity .25s ease;
+  }
+  .card:hover { border-color: #2e2e35; transform: translateY(-3px); }
+  .card:hover::before { opacity: 1; }
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .card-glyph {
+    width: 38px; height: 38px; border-radius: 9px; flex-shrink: 0;
+    border: 1px solid var(--line); background: var(--bg-raise);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-size: 13px; font-weight: 600; color: var(--accent);
+  }
+  .badge {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase;
+    padding: 4px 9px; border-radius: 5px; border: 1px solid var(--line); color: var(--text-3);
+    white-space: nowrap;
+  }
+  .badge.live { color: var(--ok); border-color: rgba(52,211,153,.3); background: rgba(52,211,153,.07); }
+  .badge.alpha { color: var(--warn); border-color: rgba(251,191,36,.3); background: rgba(251,191,36,.07); }
+  .badge.studio { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
+  .card h3 { font-size: 19px; font-weight: 600; letter-spacing: -.01em; }
+  .card p { font-size: 14px; color: var(--text-2); flex: 1; text-wrap: pretty; }
+  .card .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); border: 1px solid var(--line-soft); border-radius: 5px; padding: 3px 8px; }
+  .card a.more {
+    font-family: var(--font-mono); font-size: 12.5px; color: var(--accent);
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 4px;
+  }
+  .card a.more:hover { text-decoration: underline; }
+
+  /* practice */
+  .practice { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 18px; }
+  .principle {
+    border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 28px;
+    background: linear-gradient(180deg, var(--bg-raise), transparent);
+    transition: border-color .2s ease;
+  }
+  .principle:hover { border-color: var(--line); }
+  .principle .p-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-bottom: 14px; display:block; }
+  .principle h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; letter-spacing: -.01em; }
+  .principle p { font-size: 14px; color: var(--text-2); text-wrap: pretty; }
+  .principle code {
+    font-family: var(--font-mono); font-size: 12px; color: var(--accent);
+    background: var(--accent-soft); padding: 1px 6px; border-radius: 4px;
+  }
+
+  /* stack */
+  .stack-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+  .stack-item {
+    font-family: var(--font-mono); font-size: 12.5px; color: var(--text-2);
+    border: 1px solid var(--line); border-radius: 8px; padding: 9px 15px;
+    background: var(--bg-card); transition: border-color .18s ease, color .18s ease;
+  }
+  .stack-item:hover { border-color: var(--accent-line); color: var(--text); }
+  .stack-item b { color: var(--accent); font-weight: 600; }
+
+  /* contact */
+  .contact { text-align: center; padding: 120px 0; }
+  .contact h2 { font-size: clamp(34px, 6vw, 64px); font-weight: 700; letter-spacing: -.03em; margin-bottom: 20px; }
+  .contact h2 .thin { color: var(--text-3); font-weight: 500; }
+  .contact p { color: var(--text-2); max-width: 480px; margin: 0 auto 40px; text-wrap: pretty; }
+  .contact .hero-ctas { justify-content: center; margin-bottom: 0; }
+
+  footer {
+    border-top: 1px solid var(--line-soft); padding: 32px 0 44px;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  footer .f-mono { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); }
+  footer .f-links { display:flex; gap: 20px; }
+  footer .f-links a { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); transition: color .18s ease; }
+  footer .f-links a:hover { color: var(--accent); }
+
+  /* entrance */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.2,.6,.2,1), transform .6s cubic-bezier(.2,.6,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .08s; } .reveal.d2 { transition-delay: .16s; }
+  .reveal.d3 { transition-delay: .24s; } .reveal.d4 { transition-delay: .32s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { transition-duration: .01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="glow"></div>
+
+<nav>
+  <a class="brand" href="#top">ongaya<span class="cursor">_</span><span class="tld">.design</span></a>
+  <div class="nav-links">
+    <a href="#work"><span class="hash">#</span>work</a>
+    <a href="#practice"><span class="hash">#</span>practice</a>
+    <a href="#stack"><span class="hash">#</span>stack</a>
+    <a class="nav-cta" href="#contact"><span class="hash">#</span>contact</a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-eyebrow reveal">Kernel-platform engineer · 2 SOLID AE</div>
+    <h1 class="reveal d1">Charles<br>Oneka<span class="thin">.</span></h1>
+    <p class="hero-sub reveal d2">
+      I build <strong>kernel-first platforms</strong> — small trusted cores with everything
+      else running as plugins behind capability contracts — and the
+      <strong>agentic engineering workflows</strong> that design, build, and audit them.
+    </p>
+    <div class="hero-ctas reveal d3">
+      <a class="btn primary" href="#work">See selected work <span class="arrow">→</span></a>
+      <a class="btn" href="https://github.com/ongayadesign" target="_blank" rel="noopener">GitHub profile</a>
+    </div>
+    <div class="status-row reveal d4">
+      <span class="chip"><span class="dot"></span>unclaimedentitlements.com — live</span>
+      <span class="chip"><span class="dot blue"></span>starbridge-enterprise — alpha</span>
+      <span class="chip"><span class="dot"></span>screening.iworkveryhard.com — live</span>
+    </div>
+
+    <!-- kernel architecture diagram -->
+    <div class="kernel-wrap" aria-hidden="true">
+      <svg viewBox="0 0 520 520" fill="none">
+        <defs>
+          <radialGradient id="kg" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#3b82f6" stop-opacity=".25"/>
+            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="260" cy="260" r="150" fill="url(#kg)"/>
+        <!-- orbit rings -->
+        <circle cx="260" cy="260" r="200" stroke="#232327" stroke-width="1" stroke-dasharray="2 6"/>
+        <circle cx="260" cy="260" r="120" stroke="#232327" stroke-width="1"/>
+        <!-- spokes -->
+        <g stroke="#3b82f6" stroke-opacity=".28" stroke-width="1">
+          <line x1="260" y1="260" x2="260" y2="60"/>
+          <line x1="260" y1="260" x2="435" y2="160"/>
+          <line x1="260" y1="260" x2="435" y2="360"/>
+          <line x1="260" y1="260" x2="260" y2="460"/>
+          <line x1="260" y1="260" x2="85" y2="360"/>
+          <line x1="260" y1="260" x2="85" y2="160"/>
+        </g>
+        <!-- plugin nodes -->
+        <g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#8b8b96" text-anchor="middle">
+          <g><rect x="228" y="38" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="260" y="53">registry</text></g>
+          <g><rect x="403" y="138" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="435" y="153">rbac</text></g>
+          <g><rect x="403" y="338" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="435" y="353">audit</text></g>
+          <g><rect x="228" y="438" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="260" y="453">events</text></g>
+          <g><rect x="53" y="338" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="85" y="353">storage</text></g>
+          <g><rect x="53" y="138" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="85" y="153">plugins</text></g>
+        </g>
+        <!-- kernel core -->
+        <rect x="206" y="206" width="108" height="108" rx="14" fill="#101013" stroke="#3b82f6" stroke-opacity=".55" stroke-width="1.2"/>
+        <rect x="216" y="216" width="88" height="88" rx="10" fill="none" stroke="#3b82f6" stroke-opacity=".18"/>
+        <text x="260" y="268" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" font-weight="600" fill="#3b82f6">kernel</text>
+      </svg>
+    </div>
+  </header>
+
+  <!-- ============ WORK ============ -->
+  <section id="work">
+    <div class="sec-head reveal">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Selected work</h2>
+      <span class="sec-note">// systems that run in production</span>
+    </div>
+    <div class="work-grid">
+
+      <article class="card reveal">
+        <div class="card-top">
+          <div class="card-glyph">SB</div>
+          <span class="badge alpha">alpha · wip</span>
+        </div>
+        <h3>StarBridge Enterprise</h3>
+        <p>A kernel-first plugin platform for enterprise management — construction, investor finance, and property verticals. ~60 plugins behind capability contracts, lifecycle state machine, and a hash-chained audit sink. Actively developed with LLM-orchestrated workflows.</p>
+        <div class="tags">
+          <span class="tag">FastAPI</span><span class="tag">React 19</span><span class="tag">PostgreSQL</span>
+          <span class="tag">plugin kernel</span><span class="tag">RBAC</span><span class="tag">audit chain</span>
+        </div>
+        <a class="more" href="https://github.com/ongayadesign/starbridge-enterprise" target="_blank" rel="noopener">source · private repo →</a>
+      </article>
+
+      <article class="card reveal d1">
+        <div class="card-top">
+          <div class="card-glyph">UE</div>
+          <span class="badge live">live</span>
+        </div>
+        <h3>Unclaimed Entitlements</h3>
+        <p>Public asset-recovery platform — a searchable catalog of unclaimed property records with public search, records workflow, and an ingestion pipeline processing ~95M catalog rows. Running in production.</p>
+        <div class="tags">
+          <span class="tag">Go</span><span class="tag">PostgreSQL</span><span class="tag">nginx</span>
+          <span class="tag">ETL pipeline</span><span class="tag">public data</span>
+        </div>
+        <a class="more" href="https://unclaimedentitlements.com" target="_blank" rel="noopener">unclaimedentitlements.com →</a>
+      </article>
+
+      <article class="card reveal d2">
+        <div class="card-top">
+          <div class="card-glyph">IW</div>
+          <span class="badge live">live</span>
+        </div>
+        <h3>iWorkVeryHard Screening</h3>
+        <p>Intake assessment platform — candidate-facing application flow with a keyed admin review surface, persistent storage, and automated grading hooks. Deployed and in use.</p>
+        <div class="tags">
+          <span class="tag">Node</span><span class="tag">SQLite</span><span class="tag">systemd</span>
+          <span class="tag">admin workflows</span>
+        </div>
+        <a class="more" href="https://screening.iworkveryhard.com" target="_blank" rel="noopener">screening.iworkveryhard.com →</a>
+      </article>
+
+      <article class="card reveal d3">
+        <div class="card-top">
+          <div class="card-glyph">2S</div>
+          <span class="badge studio">studio</span>
+        </div>
+        <h3>2 SOLID AE</h3>
+        <p>The advanced-technology studio behind the platforms above — kernel-first architecture, audit-grade engineering, and LLM-orchestrated development as a first-class practice.</p>
+        <div class="tags">
+          <span class="tag">architecture</span><span class="tag">agentic eng</span><span class="tag">products</span>
+        </div>
+        <a class="more" href="https://2solidae.com" target="_blank" rel="noopener">2solidae.com →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ PRACTICE ============ -->
+  <section id="practice">
+    <div class="sec-head reveal">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">How the work gets built</h2>
+      <span class="sec-note">// three operating principles</span>
+    </div>
+    <div class="practice">
+      <div class="principle reveal">
+        <span class="p-num">/01 — kernel-first</span>
+        <h3>Small trusted core, everything else a plugin</h3>
+        <p>Platforms start from a minimal kernel — registry, capability contracts, lifecycle, audit — and grow through plugins that can only reach the outside world through defined interfaces. Extensibility without entropy.</p>
+      </div>
+      <div class="principle reveal d1">
+        <span class="p-num">/02 — audit-grade</span>
+        <h3>Evidence before "done"</h3>
+        <p>Schema changes ship with migrations. Privileged actions emit tamper-evident audit events. Launch tests, not static analysis. A task isn't finished until the running system proves it.</p>
+      </div>
+      <div class="principle reveal d2">
+        <span class="p-num">/03 — agentic</span>
+        <h3>LLM-orchestrated development</h3>
+        <p>AI agents do the volume — scoped to single plugins, single files, declared permissions — while humans hold the review boundary on kernel and security paths. The git history is the workflow.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section id="stack">
+    <div class="sec-head reveal">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Stack</h2>
+      <span class="sec-note">// what the systems actually run on</span>
+    </div>
+    <div class="stack-cloud reveal">
+      <span class="stack-item"><b>Python</b> · FastAPI · SQLAlchemy</span>
+      <span class="stack-item"><b>TypeScript</b> · React · Vite · Tailwind</span>
+      <span class="stack-item"><b>Go</b> · services &amp; pipelines</span>
+      <span class="stack-item"><b>PostgreSQL</b> · Redis · RabbitMQ</span>
+      <span class="stack-item"><b>Docker</b> · systemd · nginx</span>
+      <span class="stack-item"><b>CI/CD</b> · GitHub Actions · Alembic</span>
+      <span class="stack-item"><b>Linux</b> · Linode · Cloudflare</span>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <h2 class="reveal">Let's build<br><span class="thin">something real.</span></h2>
+    <p class="reveal d1">Kernel platforms, agentic workflows, and the unglamorous infrastructure that makes both trustworthy. Based wherever the work is.</p>
+    <div class="hero-ctas reveal d2">
+      <a class="btn primary" href="mailto:ongaya.design@gmail.com">ongaya.design@gmail.com <span class="arrow">→</span></a>
+      <a class="btn" href="https://github.com/ongayadesign" target="_blank" rel="noopener">github.com/ongayadesign</a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="f-mono">© 2026 Charles Oneka · ongayadesign</span>
+    <div class="f-links">
+      <a href="https://github.com/ongayadesign" target="_blank" rel="noopener">github</a>
+      <a href="https://2solidae.com" target="_blank" rel="noopener">2 SOLID AE</a>
+      <a href="https://unclaimedentitlements.com" target="_blank" rel="noopener">UE</a>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  // entrance reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // nav border intensity on scroll
+  const nav = document.querySelector('nav');
+  addEventListener('scroll', () => {
+    nav.style.borderBottomColor = scrollY > 10 ? 'var(--line)' : 'var(--line-soft)';
+  }, { passive: true });
+</script>
+</body>
+</html>
