@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Charles Ongaya Oneka — Principal Engineer</title>
-<meta name="description" content="Charles Ongaya Oneka — principal engineer, founder of agencyhut.io, 15+ years building enterprise platforms, AI-integrated products, and cloud infrastructure. Calgary, AB · Remote-first.">
+<meta name="description" content="Charles Ongaya Oneka — principal engineer designing enterprise platforms, agentic-AI infrastructure, and the delivery pipelines that run them. 15+ years. Production systems, audit-grade engineering. Calgary, AB · Remote-first.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -81,8 +81,8 @@
   main { max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
 
   .hero {
-    min-height: 92vh; display: flex; flex-direction: column; justify-content: center;
-    padding: 120px 0 80px; position: relative;
+    min-height: 88vh; display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 0 64px; position: relative;
   }
   .hero-eyebrow {
     font-family: var(--font-mono); font-size: 12px; color: var(--accent);
@@ -96,11 +96,11 @@
   }
   h1 .thin { color: var(--text-3); font-weight: 500; }
   .hero-sub {
-    max-width: 580px; font-size: clamp(16px, 2vw, 19px); color: var(--text-2);
+    max-width: 620px; font-size: clamp(16px, 2vw, 19px); color: var(--text-2);
     margin-bottom: 40px; text-wrap: pretty;
   }
   .hero-sub strong { color: var(--text); font-weight: 600; }
-  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
     font-family: var(--font-mono); font-size: 13px; font-weight: 500;
@@ -124,9 +124,19 @@
   .chip .dot.blue { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
   .chip .dot.amber { background: var(--warn); box-shadow: 0 0 8px var(--warn); }
 
+  .stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft);
+    border-radius: var(--radius); overflow: hidden; margin-top: 64px;
+  }
+  .stat { background: var(--bg-card); padding: 22px 24px; }
+  .stat .s-num { font-size: 30px; font-weight: 700; letter-spacing: -.03em; color: var(--text); }
+  .stat .s-num em { font-style: normal; color: var(--accent); }
+  .stat .s-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); letter-spacing: .06em; text-transform: uppercase; margin-top: 6px; }
+
   .kernel-wrap {
     position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
-    width: min(44vw, 500px); opacity: .85; display: none;
+    width: min(40vw, 460px); opacity: .8; display: none;
   }
   @media (min-width: 1280px) { .kernel-wrap { display: block; } }
   .kernel-wrap svg { width: 100%; height: auto; display:block; }
@@ -166,7 +176,6 @@
   .badge.live { color: var(--ok); border-color: rgba(52,211,153,.3); background: rgba(52,211,153,.07); }
   .badge.alpha { color: var(--warn); border-color: rgba(251,191,36,.3); background: rgba(251,191,36,.07); }
   .badge.client { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
-  .badge.launch { color: var(--text-2); border-color: var(--line); background: var(--bg-raise); }
   .card h3 { font-size: 19px; font-weight: 600; letter-spacing: -.01em; }
   .card p { font-size: 14px; color: var(--text-2); flex: 1; text-wrap: pretty; }
   .card .tags { display: flex; gap: 6px; flex-wrap: wrap; }
@@ -177,7 +186,6 @@
   }
   .card a.more:hover { text-decoration: underline; }
 
-  .practice { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 18px; }
   .principle {
     border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 28px;
     background: linear-gradient(180deg, var(--bg-raise), transparent);
@@ -187,6 +195,7 @@
   .principle .p-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-bottom: 14px; display:block; }
   .principle h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; letter-spacing: -.01em; }
   .principle p { font-size: 14px; color: var(--text-2); text-wrap: pretty; }
+  .practice { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 18px; }
 
   .stack-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
   .stack-item {
@@ -200,7 +209,7 @@
   .contact { text-align: center; padding: 120px 0; }
   .contact h2 { font-size: clamp(34px, 6vw, 64px); font-weight: 700; letter-spacing: -.03em; margin-bottom: 20px; }
   .contact h2 .thin { color: var(--text-3); font-weight: 500; }
-  .contact p { color: var(--text-2); max-width: 520px; margin: 0 auto 40px; text-wrap: pretty; }
+  .contact p { color: var(--text-2); max-width: 560px; margin: 0 auto 40px; text-wrap: pretty; }
   .contact .hero-ctas { justify-content: center; margin-bottom: 0; }
   .retainer-note {
     margin-top: 44px; display: inline-flex; align-items: center; gap: 10px;
@@ -208,6 +217,18 @@
     border: 1px dashed var(--line); border-radius: 8px; padding: 10px 18px;
   }
   .retainer-note .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+  .private-band {
+    margin-top: 22px; border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 26px 30px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    background: linear-gradient(90deg, var(--bg-raise), transparent);
+  }
+  .private-band .pb-tag {
+    font-family: var(--font-mono); font-size: 12px; color: var(--accent);
+    letter-spacing: .1em; text-transform: uppercase; white-space: nowrap;
+  }
+  .private-band p { font-size: 14px; color: var(--text-2); flex: 1; min-width: 280px; text-wrap: pretty; }
+  .private-band a { color: var(--accent); }
 
   footer {
     border-top: 1px solid var(--line-soft); padding: 32px 0 44px;
@@ -238,8 +259,8 @@
 <nav>
   <a class="brand" href="#top">ongaya<span class="cursor">_</span><span class="tld">.design</span></a>
   <div class="nav-links">
-    <a href="#work"><span class="hash">#</span>work</a>
     <a href="#practice"><span class="hash">#</span>practice</a>
+    <a href="#systems"><span class="hash">#</span>systems</a>
     <a href="#stack"><span class="hash">#</span>stack</a>
     <a class="nav-cta" href="#contact"><span class="hash">#</span>contact</a>
   </div>
@@ -249,80 +270,81 @@
 
   <!-- ============ HERO ============ -->
   <header class="hero">
-    <div class="hero-eyebrow reveal">Principal Engineer · Founder, agencyhut.io · Calgary, AB</div>
+    <div class="hero-eyebrow reveal">Principal Engineer — Enterprise Systems · Agentic AI · Calgary, AB</div>
     <h1 class="reveal d1">Charles Ongaya<br>Oneka<span class="thin">.</span></h1>
     <p class="hero-sub reveal d2">
-      <strong>15+ years</strong> building enterprise web platforms, AI-integrated products, and
-      cloud infrastructure. Founder of <strong>agencyhut.io</strong> — a white-label software,
-      web &amp; AI development partner for agencies — and retained senior engineer for
-      <strong>2 SOLID Advanced Engineering</strong>. Remote-first.
+      <strong>Fifteen years building the systems other engineers build on.</strong>
+      Enterprise platforms, agentic-AI infrastructure, kernel-first architectures, and the
+      delivery pipelines that run them — designed at depth, audited end to end,
+      and operating in production across three clouds and every timezone I can reach.
     </p>
     <div class="hero-ctas reveal d3">
-      <a class="btn primary" href="#work">Selected work <span class="arrow">→</span></a>
-      <a class="btn" href="https://github.com/ongayadesign" target="_blank" rel="noopener">GitHub profile</a>
+      <a class="btn primary" href="#systems">Selected systems <span class="arrow">→</span></a>
+      <a class="btn" href="https://github.com/ongayadesign" target="_blank" rel="noopener">GitHub</a>
     </div>
     <div class="status-row reveal d4">
-      <span class="chip"><span class="dot amber"></span>agencyhut.io — launching</span>
-      <span class="chip"><span class="dot blue"></span>starbridge-enterprise — alpha</span>
+      <span class="chip"><span class="dot"></span>agencyhut.io — live</span>
+      <span class="chip"><span class="dot blue"></span>starbridge — alpha</span>
       <span class="chip"><span class="dot"></span>unclaimedentitlements.com — live</span>
       <span class="chip"><span class="dot"></span>screening.iworkveryhard.com — live</span>
     </div>
 
-    <div class="kernel-wrap" aria-hidden="true">
-      <svg viewBox="0 0 520 520" fill="none">
-        <defs>
-          <radialGradient id="kg" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#3b82f6" stop-opacity=".25"/>
-            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <circle cx="260" cy="260" r="150" fill="url(#kg)"/>
-        <circle cx="260" cy="260" r="200" stroke="#232327" stroke-width="1" stroke-dasharray="2 6"/>
-        <circle cx="260" cy="260" r="120" stroke="#232327" stroke-width="1"/>
-        <g stroke="#3b82f6" stroke-opacity=".28" stroke-width="1">
-          <line x1="260" y1="260" x2="260" y2="60"/>
-          <line x1="260" y1="260" x2="435" y2="160"/>
-          <line x1="260" y1="260" x2="435" y2="360"/>
-          <line x1="260" y1="260" x2="260" y2="460"/>
-          <line x1="260" y1="260" x2="85" y2="360"/>
-          <line x1="260" y1="260" x2="85" y2="160"/>
-        </g>
-        <g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#8b8b96" text-anchor="middle">
-          <g><rect x="228" y="38" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="260" y="53">registry</text></g>
-          <g><rect x="403" y="138" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="435" y="153">rbac</text></g>
-          <g><rect x="403" y="338" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="435" y="353">audit</text></g>
-          <g><rect x="228" y="438" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="260" y="453">events</text></g>
-          <g><rect x="53" y="338" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="85" y="353">storage</text></g>
-          <g><rect x="53" y="138" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="85" y="153">plugins</text></g>
-        </g>
-        <rect x="206" y="206" width="108" height="108" rx="14" fill="#101013" stroke="#3b82f6" stroke-opacity=".55" stroke-width="1.2"/>
-        <rect x="216" y="216" width="88" height="88" rx="10" fill="none" stroke="#3b82f6" stroke-opacity=".18"/>
-        <text x="260" y="268" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" font-weight="600" fill="#3b82f6">kernel</text>
-      </svg>
+    <div class="stats reveal d4">
+      <div class="stat"><div class="s-num"><em>15+</em></div><div class="s-label">years enterprise systems</div></div>
+      <div class="stat"><div class="s-num"><em>$2M+</em></div><div class="s-label">annual practice revenue</div></div>
+      <div class="stat"><div class="s-num"><em>10</em></div><div class="s-label">person team led</div></div>
+      <div class="stat"><div class="s-num"><em>3</em></div><div class="s-label">clouds in production</div></div>
+      <div class="stat"><div class="s-num"><em>∞</em></div><div class="s-label">timezones delivered</div></div>
     </div>
   </header>
 
-  <!-- ============ WORK ============ -->
-  <section id="work">
+  <!-- ============ PRACTICE ============ -->
+  <section id="practice">
     <div class="sec-head reveal">
       <span class="sec-num">01</span>
-      <h2 class="sec-title">Selected work</h2>
-      <span class="sec-note">// systems that run in production</span>
+      <h2 class="sec-title">The practice</h2>
+      <span class="sec-note">// how the systems get built</span>
+    </div>
+    <div class="practice">
+      <div class="principle reveal">
+        <span class="p-num">/01 — architecture</span>
+        <h3>Kernel-first systems</h3>
+        <p>Small trusted cores — registry, capability contracts, lifecycle, audit — with everything else a plugin behind defined interfaces. Extensibility without entropy. The same pattern runs my platforms and my agent infrastructure.</p>
+      </div>
+      <div class="principle reveal d1">
+        <span class="p-num">/02 — agentic</span>
+        <h3>AI does the volume. Humans hold the boundary.</h3>
+        <p>LLM agents operate under scoped permissions — single plugins, declared files, evidence before done. Kernel and security paths stay human-reviewed. The git history is the workflow; the audit trail is the proof.</p>
+      </div>
+      <div class="principle reveal d2">
+        <span class="p-num">/03 — evidence</span>
+        <h3>Receipts, not adjectives</h3>
+        <p>Migrations with every schema change. Tamper-evident audit chains on privileged actions. Launch tests against the running system — never static analysis alone. A task isn't done until production proves it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SYSTEMS ============ -->
+  <section id="systems">
+    <div class="sec-head reveal">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Selected systems</h2>
+      <span class="sec-note">// public surface of a larger practice</span>
     </div>
     <div class="work-grid">
 
       <article class="card reveal">
         <div class="card-top">
           <div class="card-glyph">AH</div>
-          <span class="badge launch">launching</span>
+          <span class="badge live">live</span>
         </div>
         <h3>agencyhut.io</h3>
-        <p>White-label software, web &amp; AI development partner for marketing, creative, and digital agencies. Includes an API-backed delivery platform — ticketing, site snapshots, approval workflows, billing integration, operational dashboards, real-time messaging — plus a WordPress plugin suite and the agencyhut.io marketing site.</p>
+        <p>White-label development OS for agencies — an embedded engineering department they resell as their own. Delivery platform with ticketing, snapshots, approvals, billing, and operational dashboards; WordPress plugin suite; deterministic, auditable, partner-isolated by design. Founded and operated by me.</p>
         <div class="tags">
           <span class="tag">delivery platform</span><span class="tag">WordPress</span><span class="tag">plugin suite</span>
           <span class="tag">white-label</span>
         </div>
-        <span class="more" style="color:var(--text-3); cursor:default">agencyhut.io — launching soon</span>
+        <a class="more" href="https://agencyhut.io" target="_blank" rel="noopener">agencyhut.io →</a>
       </article>
 
       <article class="card reveal d1">
@@ -331,7 +353,7 @@
           <span class="badge alpha">alpha · wip</span>
         </div>
         <h3>StarBridge Enterprise</h3>
-        <p>API-backed delivery platform built on a kernel-first plugin architecture — registry, capability contracts, lifecycle state machine, hash-chained audit sink. ~60 plugins across management verticals. Actively developed with LLM-orchestrated workflows.</p>
+        <p>Kernel-first enterprise platform — ~60 plugins across management verticals, capability contracts, lifecycle state machine, hash-chained audit sink, tenant-scoped storage. Designed and built through agentic LLM workflows: agents write, audit, and verify; humans hold the boundary. ~100K LOC, running.</p>
         <div class="tags">
           <span class="tag">FastAPI</span><span class="tag">React 19</span><span class="tag">PostgreSQL</span>
           <span class="tag">plugin kernel</span><span class="tag">RBAC</span><span class="tag">audit chain</span>
@@ -345,7 +367,7 @@
           <span class="badge live">live</span>
         </div>
         <h3>Unclaimed Entitlements</h3>
-        <p>Public asset-recovery platform — a searchable catalog of unclaimed property records with public search, records workflow, and an ingestion pipeline processing ~95M catalog rows. Running in production.</p>
+        <p>Public asset-recovery platform — searchable catalog of unclaimed property records. Custom ingestion pipeline processing ~95M catalog rows into production search, with records workflow and public API surface. Running on dedicated infrastructure.</p>
         <div class="tags">
           <span class="tag">Go</span><span class="tag">PostgreSQL</span><span class="tag">nginx</span>
           <span class="tag">ETL pipeline</span><span class="tag">public data</span>
@@ -359,7 +381,7 @@
           <span class="badge live">live</span>
         </div>
         <h3>iWorkVeryHard Screening</h3>
-        <p>Intake assessment platform — candidate-facing application flow with a keyed admin review surface, persistent storage, and automated grading hooks. Deployed and in use.</p>
+        <p>Intake assessment platform — candidate-facing application flow, keyed admin review surface, persistent storage, automated grading hooks. Deployed on dedicated infrastructure and in daily use.</p>
         <div class="tags">
           <span class="tag">Node</span><span class="tag">SQLite</span><span class="tag">systemd</span>
           <span class="tag">admin workflows</span>
@@ -370,51 +392,26 @@
       <article class="card reveal d4">
         <div class="card-top">
           <div class="card-glyph">2S</div>
-          <span class="badge client">retained</span>
+          <span class="badge client">principal engineer</span>
         </div>
-        <h3>2 SOLID Advanced Engineering</h3>
-        <p>Retained senior engineer (2023–present) for a multi-discipline engineering, product design, and construction firm — architected their advanced public website: WordPress FSE, custom Gutenberg blocks, D3/canvas visual sections, motion-rich interactions, GCP production deployment.</p>
+        <h3>2SOLID AI</h3>
+        <p>Applied-AI engineering firm — the intelligence layer for products that have to work: context-resident agent memory, coordinated agent workforces, verified AI. Retained principal engineer since 2023; architected their advanced public platform and production infrastructure.</p>
         <div class="tags">
-          <span class="tag">WordPress FSE</span><span class="tag">Gutenberg</span><span class="tag">D3</span>
-          <span class="tag">GCP</span><span class="tag">motion UI</span>
+          <span class="tag">agentic systems</span><span class="tag">applied AI</span><span class="tag">platform architecture</span>
         </div>
         <a class="more" href="https://2solidae.com" target="_blank" rel="noopener">2solidae.com →</a>
       </article>
 
     </div>
 
-    <div class="private-band reveal" style="margin-top:22px; border:1px solid var(--line); border-radius:var(--radius); padding:24px 28px; display:flex; align-items:center; gap:18px; flex-wrap:wrap; background:linear-gradient(90deg,var(--bg-raise),transparent);">
-      <span class="mono" style="font-size:12px; color:var(--accent); letter-spacing:.1em; text-transform:uppercase; white-space:nowrap;">▸ in private development</span>
-      <p style="font-size:14px; color:var(--text-2); flex:1; min-width:260px; text-wrap:pretty;">
-        Additional kernel systems, agent orchestration infrastructure, and applied-AI platforms are in private development.
-        Serious inquiries — <a href="mailto:ongaya.design@gmail.com" style="color:var(--accent)">ongaya.design@gmail.com</a>
+    <div class="private-band reveal">
+      <span class="pb-tag">▸ private development</span>
+      <p>
+        Most of what I build never ships publicly — by design. Persistent memory architectures
+        for agent systems, multi-agent orchestration infrastructure, and applied-AI platforms
+        in active development. What you see here is the public surface.
+        Serious inquiries — <a href="mailto:ongaya.design@gmail.com">ongaya.design@gmail.com</a>
       </p>
-    </div>
-  </section>
-
-  <!-- ============ PRACTICE ============ -->
-  <section id="practice">
-    <div class="sec-head reveal">
-      <span class="sec-num">02</span>
-      <h2 class="sec-title">How the work gets built</h2>
-      <span class="sec-note">// three operating principles</span>
-    </div>
-    <div class="practice">
-      <div class="principle reveal">
-        <span class="p-num">/01 — kernel-first</span>
-        <h3>Small trusted core, everything else a plugin</h3>
-        <p>Platforms start from a minimal kernel — registry, capability contracts, lifecycle, audit — and grow through plugins that can only reach the outside world through defined interfaces. Extensibility without entropy.</p>
-      </div>
-      <div class="principle reveal d1">
-        <span class="p-num">/02 — audit-grade</span>
-        <h3>Evidence before "done"</h3>
-        <p>Schema changes ship with migrations. Privileged actions emit tamper-evident audit events. Launch tests, not static analysis. A task isn't finished until the running system proves it.</p>
-      </div>
-      <div class="principle reveal d2">
-        <span class="p-num">/03 — agentic</span>
-        <h3>AI-augmented delivery</h3>
-        <p>LLM agents do the volume — scoped to single plugins, single files, declared permissions — while humans hold the review boundary on kernel and security paths. The git history is the workflow.</p>
-      </div>
     </div>
   </section>
 
@@ -423,23 +420,23 @@
     <div class="sec-head reveal">
       <span class="sec-num">03</span>
       <h2 class="sec-title">Stack</h2>
-      <span class="sec-note">// what the systems actually run on</span>
+      <span class="sec-note">// depth, not breadth</span>
     </div>
     <div class="stack-cloud reveal">
-      <span class="stack-item"><b>Languages</b> PHP · Python · TypeScript · C# · C++ · SQL</span>
-      <span class="stack-item"><b>Web &amp; CMS</b> WordPress FSE · Gutenberg · React · Node · gRPC</span>
-      <span class="stack-item"><b>Cloud &amp; Ops</b> AWS · GCP · Azure · Docker · Kubernetes</span>
-      <span class="stack-item"><b>Data</b> PostgreSQL · Redis · RabbitMQ</span>
-      <span class="stack-item"><b>AI</b> LLM integration · agentic systems</span>
-      <span class="stack-item"><b>Design</b> Figma · Adobe XD · motion UI</span>
-      <span class="stack-item"><b>Practice</b> CI/CD · Linux · remote teams</span>
+      <span class="stack-item"><b>Systems</b> Linux · Docker · Kubernetes · CI/CD · gRPC · REST</span>
+      <span class="stack-item"><b>Languages</b> PHP · Python · TypeScript · C# · C++ · Go · SQL</span>
+      <span class="stack-item"><b>Data</b> PostgreSQL · Redis · RabbitMQ · event pipelines</span>
+      <span class="stack-item"><b>Cloud</b> AWS · GCP · Azure — production across all three</span>
+      <span class="stack-item"><b>AI</b> LLM integration · agent orchestration · memory architectures</span>
+      <span class="stack-item"><b>Web</b> WordPress FSE · Gutenberg · React · Node</span>
+      <span class="stack-item"><b>Design</b> Figma · motion UI · information architecture</span>
     </div>
   </section>
 
   <!-- ============ CONTACT ============ -->
   <section class="contact" id="contact">
-    <h2 class="reveal">Let's build<br><span class="thin">something real.</span></h2>
-    <p class="reveal d1">Senior platform ownership, AI-augmented delivery, cloud production support, and executive-level communication — for firms that need committed technical capacity.</p>
+    <h2 class="reveal">Serious systems<br><span class="thin">start with serious engineers.</span></h2>
+    <p class="reveal d1">Platform ownership, agentic-AI infrastructure, production cloud operations, and executive-level communication — for firms that need committed technical capacity, not headcount.</p>
     <div class="hero-ctas reveal d2">
       <a class="btn primary" href="mailto:ongaya.design@gmail.com">ongaya.design@gmail.com <span class="arrow">→</span></a>
       <a class="btn" href="tel:+15878892730">+1 (587) 889-2730</a>
@@ -448,11 +445,11 @@
   </section>
 
   <footer>
-    <span class="f-mono">© 2026 Charles Ongaya Oneka · Calgary, AB · Remote-first</span>
+    <span class="f-mono">© 2026 Charles Ongaya Oneka · Calgary, AB · Remote-first · Worldwide</span>
     <div class="f-links">
       <a href="https://github.com/ongayadesign" target="_blank" rel="noopener">github</a>
-      <a href="https://2solidae.com" target="_blank" rel="noopener">2 SOLID AE</a>
-      <a href="https://unclaimedentitlements.com" target="_blank" rel="noopener">UE</a>
+      <a href="https://2solidae.com" target="_blank" rel="noopener">2SOLID AI</a>
+      <a href="https://agencyhut.io" target="_blank" rel="noopener">agencyhut</a>
     </div>
   </footer>
 
