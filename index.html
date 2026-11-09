@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Charles Oneka — Kernel-Platform Engineer</title>
-<meta name="description" content="Charles Oneka builds kernel-first platforms and the agentic engineering workflows around them. 2 SOLID AE.">
+<title>Charles Ongaya Oneka — Principal Engineer</title>
+<meta name="description" content="Charles Ongaya Oneka — principal engineer, founder of agencyhut.io, 15+ years building enterprise platforms, AI-integrated products, and cloud infrastructure. Calgary, AB · Remote-first.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -42,7 +42,6 @@
   a { color: inherit; text-decoration: none; }
   .mono { font-family: var(--font-mono); }
 
-  /* ---------- backdrop grid ---------- */
   .grid-bg {
     position: fixed; inset: 0; z-index: -1; pointer-events: none;
     background-image:
@@ -59,7 +58,6 @@
     background: radial-gradient(ellipse, rgba(59,130,246,.14), transparent 65%);
   }
 
-  /* ---------- nav ---------- */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 50;
     display: flex; align-items: center; justify-content: space-between;
@@ -82,7 +80,6 @@
 
   main { max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
 
-  /* ---------- hero ---------- */
   .hero {
     min-height: 92vh; display: flex; flex-direction: column; justify-content: center;
     padding: 120px 0 80px; position: relative;
@@ -94,12 +91,12 @@
   }
   .hero-eyebrow::before { content:""; width: 26px; height: 1px; background: var(--accent); }
   h1 {
-    font-size: clamp(44px, 8.5vw, 92px); font-weight: 700; line-height: 1.02;
+    font-size: clamp(40px, 7.5vw, 84px); font-weight: 700; line-height: 1.03;
     letter-spacing: -.035em; margin-bottom: 28px;
   }
   h1 .thin { color: var(--text-3); font-weight: 500; }
   .hero-sub {
-    max-width: 560px; font-size: clamp(16px, 2vw, 19px); color: var(--text-2);
+    max-width: 580px; font-size: clamp(16px, 2vw, 19px); color: var(--text-2);
     margin-bottom: 40px; text-wrap: pretty;
   }
   .hero-sub strong { color: var(--text); font-weight: 600; }
@@ -125,8 +122,8 @@
   }
   .chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 8px var(--ok); }
   .chip .dot.blue { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+  .chip .dot.amber { background: var(--warn); box-shadow: 0 0 8px var(--warn); }
 
-  /* kernel diagram */
   .kernel-wrap {
     position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
     width: min(44vw, 500px); opacity: .85; display: none;
@@ -134,14 +131,12 @@
   @media (min-width: 1280px) { .kernel-wrap { display: block; } }
   .kernel-wrap svg { width: 100%; height: auto; display:block; }
 
-  /* ---------- sections ---------- */
   section { padding: 96px 0; border-top: 1px solid var(--line-soft); }
   .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 48px; flex-wrap: wrap; }
   .sec-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
   .sec-title { font-size: clamp(26px, 4vw, 38px); font-weight: 700; letter-spacing: -.025em; }
   .sec-note { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); margin-left: auto; }
 
-  /* work cards */
   .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
   .card {
     background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
@@ -170,7 +165,8 @@
   }
   .badge.live { color: var(--ok); border-color: rgba(52,211,153,.3); background: rgba(52,211,153,.07); }
   .badge.alpha { color: var(--warn); border-color: rgba(251,191,36,.3); background: rgba(251,191,36,.07); }
-  .badge.studio { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
+  .badge.client { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
+  .badge.launch { color: var(--text-2); border-color: var(--line); background: var(--bg-raise); }
   .card h3 { font-size: 19px; font-weight: 600; letter-spacing: -.01em; }
   .card p { font-size: 14px; color: var(--text-2); flex: 1; text-wrap: pretty; }
   .card .tags { display: flex; gap: 6px; flex-wrap: wrap; }
@@ -181,7 +177,6 @@
   }
   .card a.more:hover { text-decoration: underline; }
 
-  /* practice */
   .practice { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 18px; }
   .principle {
     border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 28px;
@@ -192,12 +187,7 @@
   .principle .p-num { font-family: var(--font-mono); font-size: 12px; color: var(--accent); margin-bottom: 14px; display:block; }
   .principle h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; letter-spacing: -.01em; }
   .principle p { font-size: 14px; color: var(--text-2); text-wrap: pretty; }
-  .principle code {
-    font-family: var(--font-mono); font-size: 12px; color: var(--accent);
-    background: var(--accent-soft); padding: 1px 6px; border-radius: 4px;
-  }
 
-  /* stack */
   .stack-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
   .stack-item {
     font-family: var(--font-mono); font-size: 12.5px; color: var(--text-2);
@@ -207,12 +197,17 @@
   .stack-item:hover { border-color: var(--accent-line); color: var(--text); }
   .stack-item b { color: var(--accent); font-weight: 600; }
 
-  /* contact */
   .contact { text-align: center; padding: 120px 0; }
   .contact h2 { font-size: clamp(34px, 6vw, 64px); font-weight: 700; letter-spacing: -.03em; margin-bottom: 20px; }
   .contact h2 .thin { color: var(--text-3); font-weight: 500; }
-  .contact p { color: var(--text-2); max-width: 480px; margin: 0 auto 40px; text-wrap: pretty; }
+  .contact p { color: var(--text-2); max-width: 520px; margin: 0 auto 40px; text-wrap: pretty; }
   .contact .hero-ctas { justify-content: center; margin-bottom: 0; }
+  .retainer-note {
+    margin-top: 44px; display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-mono); font-size: 12px; color: var(--text-3);
+    border: 1px dashed var(--line); border-radius: 8px; padding: 10px 18px;
+  }
+  .retainer-note .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 
   footer {
     border-top: 1px solid var(--line-soft); padding: 32px 0 44px;
@@ -223,7 +218,6 @@
   footer .f-links a { font-family: var(--font-mono); font-size: 12px; color: var(--text-3); transition: color .18s ease; }
   footer .f-links a:hover { color: var(--accent); }
 
-  /* entrance */
   .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.2,.6,.2,1), transform .6s cubic-bezier(.2,.6,.2,1); }
   .reveal.in { opacity: 1; transform: none; }
   .reveal.d1 { transition-delay: .08s; } .reveal.d2 { transition-delay: .16s; }
@@ -255,25 +249,25 @@
 
   <!-- ============ HERO ============ -->
   <header class="hero">
-    <div class="hero-eyebrow reveal">Kernel-platform engineer · 2 SOLID AE</div>
-    <h1 class="reveal d1">Charles<br>Oneka<span class="thin">.</span></h1>
+    <div class="hero-eyebrow reveal">Principal Engineer · Founder, agencyhut.io · Calgary, AB</div>
+    <h1 class="reveal d1">Charles Ongaya<br>Oneka<span class="thin">.</span></h1>
     <p class="hero-sub reveal d2">
-      I build <strong>kernel-first platforms</strong> — small trusted cores with everything
-      else running as plugins behind capability contracts — and the
-      <strong>agentic engineering workflows</strong> that design, build, and audit them.
-      Most of what I'm working on stays private; this page is the public surface.
+      <strong>15+ years</strong> building enterprise web platforms, AI-integrated products, and
+      cloud infrastructure. Founder of <strong>agencyhut.io</strong> — a white-label software,
+      web &amp; AI development partner for agencies — and retained senior engineer for
+      <strong>2 SOLID Advanced Engineering</strong>. Remote-first.
     </p>
     <div class="hero-ctas reveal d3">
-      <a class="btn primary" href="#work">See selected work <span class="arrow">→</span></a>
+      <a class="btn primary" href="#work">Selected work <span class="arrow">→</span></a>
       <a class="btn" href="https://github.com/ongayadesign" target="_blank" rel="noopener">GitHub profile</a>
     </div>
     <div class="status-row reveal d4">
-      <span class="chip"><span class="dot"></span>unclaimedentitlements.com — live</span>
+      <span class="chip"><span class="dot amber"></span>agencyhut.io — launching</span>
       <span class="chip"><span class="dot blue"></span>starbridge-enterprise — alpha</span>
+      <span class="chip"><span class="dot"></span>unclaimedentitlements.com — live</span>
       <span class="chip"><span class="dot"></span>screening.iworkveryhard.com — live</span>
     </div>
 
-    <!-- kernel architecture diagram -->
     <div class="kernel-wrap" aria-hidden="true">
       <svg viewBox="0 0 520 520" fill="none">
         <defs>
@@ -283,10 +277,8 @@
           </radialGradient>
         </defs>
         <circle cx="260" cy="260" r="150" fill="url(#kg)"/>
-        <!-- orbit rings -->
         <circle cx="260" cy="260" r="200" stroke="#232327" stroke-width="1" stroke-dasharray="2 6"/>
         <circle cx="260" cy="260" r="120" stroke="#232327" stroke-width="1"/>
-        <!-- spokes -->
         <g stroke="#3b82f6" stroke-opacity=".28" stroke-width="1">
           <line x1="260" y1="260" x2="260" y2="60"/>
           <line x1="260" y1="260" x2="435" y2="160"/>
@@ -295,7 +287,6 @@
           <line x1="260" y1="260" x2="85" y2="360"/>
           <line x1="260" y1="260" x2="85" y2="160"/>
         </g>
-        <!-- plugin nodes -->
         <g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#8b8b96" text-anchor="middle">
           <g><rect x="228" y="38" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="260" y="53">registry</text></g>
           <g><rect x="403" y="138" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="435" y="153">rbac</text></g>
@@ -304,7 +295,6 @@
           <g><rect x="53" y="338" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="85" y="353">storage</text></g>
           <g><rect x="53" y="138" width="64" height="24" rx="6" fill="#131316" stroke="#2e2e35"/><text x="85" y="153">plugins</text></g>
         </g>
-        <!-- kernel core -->
         <rect x="206" y="206" width="108" height="108" rx="14" fill="#101013" stroke="#3b82f6" stroke-opacity=".55" stroke-width="1.2"/>
         <rect x="216" y="216" width="88" height="88" rx="10" fill="none" stroke="#3b82f6" stroke-opacity=".18"/>
         <text x="260" y="268" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" font-weight="600" fill="#3b82f6">kernel</text>
@@ -323,11 +313,25 @@
 
       <article class="card reveal">
         <div class="card-top">
+          <div class="card-glyph">AH</div>
+          <span class="badge launch">launching</span>
+        </div>
+        <h3>agencyhut.io</h3>
+        <p>White-label software, web &amp; AI development partner for marketing, creative, and digital agencies. Includes an API-backed delivery platform — ticketing, site snapshots, approval workflows, billing integration, operational dashboards, real-time messaging — plus a WordPress plugin suite and the agencyhut.io marketing site.</p>
+        <div class="tags">
+          <span class="tag">delivery platform</span><span class="tag">WordPress</span><span class="tag">plugin suite</span>
+          <span class="tag">white-label</span>
+        </div>
+        <span class="more" style="color:var(--text-3); cursor:default">agencyhut.io — launching soon</span>
+      </article>
+
+      <article class="card reveal d1">
+        <div class="card-top">
           <div class="card-glyph">SB</div>
           <span class="badge alpha">alpha · wip</span>
         </div>
         <h3>StarBridge Enterprise</h3>
-        <p>A kernel-first plugin platform for enterprise management — construction, investor finance, and property verticals. ~60 plugins behind capability contracts, lifecycle state machine, and a hash-chained audit sink. Actively developed with LLM-orchestrated workflows.</p>
+        <p>API-backed delivery platform built on a kernel-first plugin architecture — registry, capability contracts, lifecycle state machine, hash-chained audit sink. ~60 plugins across management verticals. Actively developed with LLM-orchestrated workflows.</p>
         <div class="tags">
           <span class="tag">FastAPI</span><span class="tag">React 19</span><span class="tag">PostgreSQL</span>
           <span class="tag">plugin kernel</span><span class="tag">RBAC</span><span class="tag">audit chain</span>
@@ -335,7 +339,7 @@
         <span class="more" style="color:var(--text-3); cursor:default">private repository · access by agreement</span>
       </article>
 
-      <article class="card reveal d1">
+      <article class="card reveal d2">
         <div class="card-top">
           <div class="card-glyph">UE</div>
           <span class="badge live">live</span>
@@ -349,7 +353,7 @@
         <a class="more" href="https://unclaimedentitlements.com" target="_blank" rel="noopener">unclaimedentitlements.com →</a>
       </article>
 
-      <article class="card reveal d2">
+      <article class="card reveal d3">
         <div class="card-top">
           <div class="card-glyph">IW</div>
           <span class="badge live">live</span>
@@ -363,22 +367,22 @@
         <a class="more" href="https://screening.iworkveryhard.com" target="_blank" rel="noopener">screening.iworkveryhard.com →</a>
       </article>
 
-      <article class="card reveal d3">
+      <article class="card reveal d4">
         <div class="card-top">
           <div class="card-glyph">2S</div>
-          <span class="badge studio">studio</span>
+          <span class="badge client">retained</span>
         </div>
-        <h3>2 SOLID AE</h3>
-        <p>The advanced-technology studio behind the platforms above — kernel-first architecture, audit-grade engineering, and LLM-orchestrated development as a first-class practice.</p>
+        <h3>2 SOLID Advanced Engineering</h3>
+        <p>Retained senior engineer (2023–present) for a multi-discipline engineering, product design, and construction firm — architected their advanced public website: WordPress FSE, custom Gutenberg blocks, D3/canvas visual sections, motion-rich interactions, GCP production deployment.</p>
         <div class="tags">
-          <span class="tag">architecture</span><span class="tag">agentic eng</span><span class="tag">products</span>
+          <span class="tag">WordPress FSE</span><span class="tag">Gutenberg</span><span class="tag">D3</span>
+          <span class="tag">GCP</span><span class="tag">motion UI</span>
         </div>
         <a class="more" href="https://2solidae.com" target="_blank" rel="noopener">2solidae.com →</a>
       </article>
 
     </div>
 
-    <!-- private work band -->
     <div class="private-band reveal" style="margin-top:22px; border:1px solid var(--line); border-radius:var(--radius); padding:24px 28px; display:flex; align-items:center; gap:18px; flex-wrap:wrap; background:linear-gradient(90deg,var(--bg-raise),transparent);">
       <span class="mono" style="font-size:12px; color:var(--accent); letter-spacing:.1em; text-transform:uppercase; white-space:nowrap;">▸ in private development</span>
       <p style="font-size:14px; color:var(--text-2); flex:1; min-width:260px; text-wrap:pretty;">
@@ -408,8 +412,8 @@
       </div>
       <div class="principle reveal d2">
         <span class="p-num">/03 — agentic</span>
-        <h3>LLM-orchestrated development</h3>
-        <p>AI agents do the volume — scoped to single plugins, single files, declared permissions — while humans hold the review boundary on kernel and security paths. The git history is the workflow.</p>
+        <h3>AI-augmented delivery</h3>
+        <p>LLM agents do the volume — scoped to single plugins, single files, declared permissions — while humans hold the review boundary on kernel and security paths. The git history is the workflow.</p>
       </div>
     </div>
   </section>
@@ -422,28 +426,29 @@
       <span class="sec-note">// what the systems actually run on</span>
     </div>
     <div class="stack-cloud reveal">
-      <span class="stack-item"><b>Python</b> · FastAPI · SQLAlchemy</span>
-      <span class="stack-item"><b>TypeScript</b> · React · Vite · Tailwind</span>
-      <span class="stack-item"><b>Go</b> · services &amp; pipelines</span>
-      <span class="stack-item"><b>PostgreSQL</b> · Redis · RabbitMQ</span>
-      <span class="stack-item"><b>Docker</b> · systemd · nginx</span>
-      <span class="stack-item"><b>CI/CD</b> · GitHub Actions · Alembic</span>
-      <span class="stack-item"><b>Linux</b> · Linode · Cloudflare</span>
+      <span class="stack-item"><b>Languages</b> PHP · Python · TypeScript · C# · C++ · SQL</span>
+      <span class="stack-item"><b>Web &amp; CMS</b> WordPress FSE · Gutenberg · React · Node · gRPC</span>
+      <span class="stack-item"><b>Cloud &amp; Ops</b> AWS · GCP · Azure · Docker · Kubernetes</span>
+      <span class="stack-item"><b>Data</b> PostgreSQL · Redis · RabbitMQ</span>
+      <span class="stack-item"><b>AI</b> LLM integration · agentic systems</span>
+      <span class="stack-item"><b>Design</b> Figma · Adobe XD · motion UI</span>
+      <span class="stack-item"><b>Practice</b> CI/CD · Linux · remote teams</span>
     </div>
   </section>
 
   <!-- ============ CONTACT ============ -->
   <section class="contact" id="contact">
     <h2 class="reveal">Let's build<br><span class="thin">something real.</span></h2>
-    <p class="reveal d1">Kernel platforms, agentic workflows, and the unglamorous infrastructure that makes both trustworthy. Based wherever the work is.</p>
+    <p class="reveal d1">Senior platform ownership, AI-augmented delivery, cloud production support, and executive-level communication — for firms that need committed technical capacity.</p>
     <div class="hero-ctas reveal d2">
       <a class="btn primary" href="mailto:ongaya.design@gmail.com">ongaya.design@gmail.com <span class="arrow">→</span></a>
-      <a class="btn" href="https://github.com/ongayadesign" target="_blank" rel="noopener">github.com/ongayadesign</a>
+      <a class="btn" href="tel:+15878892730">+1 (587) 889-2730</a>
     </div>
+    <div class="retainer-note reveal d3"><span class="dot"></span>Available for a limited number of annual retainer engagements</div>
   </section>
 
   <footer>
-    <span class="f-mono">© 2026 Charles Oneka · ongayadesign</span>
+    <span class="f-mono">© 2026 Charles Ongaya Oneka · Calgary, AB · Remote-first</span>
     <div class="f-links">
       <a href="https://github.com/ongayadesign" target="_blank" rel="noopener">github</a>
       <a href="https://2solidae.com" target="_blank" rel="noopener">2 SOLID AE</a>
@@ -454,13 +459,11 @@
 </main>
 
 <script>
-  // entrance reveals
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // nav border intensity on scroll
   const nav = document.querySelector('nav');
   addEventListener('scroll', () => {
     nav.style.borderBottomColor = scrollY > 10 ? 'var(--line)' : 'var(--line-soft)';
